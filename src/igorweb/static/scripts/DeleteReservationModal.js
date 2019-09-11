@@ -54,12 +54,14 @@
               <!-- Cancel, exits modal, only shows on main reservation page -->
               <button
                 class="modalbtn igorbtn btn btn-secondary mr-auto cancel"
+                id="delete-cancel-btn"
                 data-dismiss="modal"
                 type="button"
               >Cancel</button>
               <!-- Delete, sends a igor del command to the server -->
               <button
                 class="modalbtn gobtn igorbtn btn btn-primary modalcommand"
+                id="delete-delete-btn"
                 style="background-color: #a975d6; border-color: #a975d6;"
                 type="button"
                 v-on:click="deleteReservation()"

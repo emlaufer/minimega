@@ -19,6 +19,7 @@
         aria-hidden="true"
         aria-labelledby="New Reservation"
         class="modal fade"
+        id="new-res-modal"
         ref="modal"
         role="dialog"
         tabindex="-1"
@@ -58,6 +59,7 @@
                     <input
                       autofocus
                       class="dash form-control"
+                      id="new-res-name-input"
                       placeholder="Reservation name"
                       type="text"
                       v-model="name"
@@ -74,6 +76,7 @@
                   <button
                     :class="{active: isKernelInit}"
                     class="modalswitch btn btn-light"
+                    id="new-res-kernel-btn"
                     style="width: 50%;"
                     type="button"
                     v-on:click="isKernelInit = true"
@@ -81,6 +84,7 @@
                   <button
                     :class="{active: !isKernelInit}"
                     class="modalswitch btn btn-light"
+                    id="new-res-cobbler-btn"
                     style="width: 50%;"
                     type="button"
                     v-on:click="isKernelInit = false"
@@ -106,6 +110,7 @@
                     <input
                       :class="{'is-valid': kernelPathIsValid, 'is-invalid': !kernelPathIsValid}"
                       class="dash form-control"
+                      id="new-res-kernel-input"
                       placeholder="Kernel path"
                       type="text"
                       v-model="kernelPath"
@@ -136,6 +141,7 @@
                     <input
                       :class="{'is-valid': initrdPathIsValid, 'is-invalid': !initrdPathIsValid}"
                       class="dash form-control"
+                      id="new-res-initrd-input"
                       placeholder="Initrd path"
                       type="text"
                       v-model="initrdPath"
@@ -170,6 +176,7 @@
                     </div>
                     <input
                       class="dash form-control"
+                      id="new-res-cobbler-input"
                       placeholder="Cobbler profile"
                       type="text"
                       v-model="cobblerProfile"
@@ -186,6 +193,7 @@
                   <button
                     :class="{active: !isNodeList}"
                     class="modalswitch btn btn-light"
+                    id="new-res-node-list-btn"
                     style="width: 50%;"
                     type="button"
                     v-on:click="isNodeList = false"
@@ -193,6 +201,7 @@
                   <button
                     :class="{active: isNodeList}"
                     class="modalswitch btn btn-light"
+                    id="new-res-node-num-btn"
                     style="width: 50%;"
                     type="button"
                     v-on:click="isNodeList = true"
@@ -213,6 +222,7 @@
                     </div>
                     <input
                       class="dash form-control"
+                      id="new-res-node-num-input"
                       min="1"
                       placeholder="Number of nodes"
                       type="number"
@@ -235,6 +245,7 @@
                     </div>
                     <input
                       class="dash form-control"
+                      id="new-res-node-list-input"
                       placeholder="Node list"
                       type="text"
                       v-model="nodeList"
@@ -263,6 +274,7 @@
                       <input
                         :class="{'is-valid': group && groupIsValid, 'is-invalid': group && !groupIsValid}"
                         class="dash form-control"
+                        id="new-res-group-input"
                         placeholder="Group"
                         type="text"
                         v-model="group"
@@ -292,6 +304,7 @@
                       </div>
                       <input
                         class="dash form-control"
+                        id="new-res-cmd-args-input"
                         placeholder="Command line arguments"
                         type="text"
                         v-model="cmdArgs"
@@ -314,6 +327,7 @@
                       <input
                         class="dash form-control"
                         placeholder="Reservation length"
+                        id="new-res-len-input"
                         type="text"
                         v-model="resLength"
                         value="60m"
@@ -335,6 +349,7 @@
                       </div>
                       <input
                         class="dash form-control"
+                        id="new-res-after-date-input"
                         placeholder="After this date"
                         type="text"
                         v-model="afterDate"
@@ -373,6 +388,7 @@
             <div class="modal-footer m-3">
               <button
                 class="modalbtn igorbtn btn btn-secondary mr-auto"
+                id="new-res-back-btn"
                 type="button"
                 v-if="speculating"
                 v-on:click="speculating = false"
@@ -381,6 +397,7 @@
               <button
                 class="modalbtn igorbtn btn btn-secondary mr-auto cancel"
                 data-dismiss="modal"
+                id="new-res-cancel-btn"
                 type="button"
                 v-if="!speculating"
               >Cancel</button>
@@ -388,6 +405,7 @@
               <button
                 :disabled="!validForm"
                 class="modalbtn igorbtn btn btn-primary modalcommand"
+                id="new-res-speculate-btn"
                 style="background-color: #ff902d; border-color: #ff902d;"
                 type="button"
                 v-if="!speculating"
@@ -399,6 +417,7 @@
               <button
                 :disabled="!validForm"
                 class="modalbtn igorbtn btn btn-primary modalcommand"
+                id="new-res-reserve-btn"
                 style="background-color: #a975d6; border-color: #a975d6;"
                 type="button"
                 v-if="!speculating"

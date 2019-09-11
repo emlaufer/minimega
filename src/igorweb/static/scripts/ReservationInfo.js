@@ -19,12 +19,14 @@
                   <div class="input-group">
                     <input
                       class="form-control"
+                      id="res-info-filter-input"
                       placeholder="Filter Reservations"
                       type="text"
                       v-model="searchText"
                     >
                     <button
                       class="btn"
+                      id="res-info-clear-filter-btn"
                       v-if="searchText != ''"
                       v-on:click="clearFilter()"
                     >Clear</button>
@@ -47,7 +49,7 @@
                       >{{ col }}</label>
                     </div>
                   </div>
-                  <div class="row" id="table" style="margin: 0.5em; opacity: 1;">
+                  <div class="row" id="res-info-table" style="margin: 0.5em; opacity: 1;">
                     <reservation-table
                       :filter="searchText"
                       :columns="shownColumns"
